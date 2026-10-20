@@ -5,11 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#f8f3eb">
+  <meta name="description" content="Kibagroom — бережный груминг и забота о питомцах.">
   <title>Kibagroom — красота в каждой детали</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
 
   <script>
@@ -50,7 +51,7 @@
     }
 
     .photo {
-      transition: transform .45s;
+      transition: transform .45s ease;
     }
 
     .service-card:hover .photo {
@@ -60,7 +61,7 @@
     .category-button {
       border: 1px solid #d8c8b7;
       border-radius: 999px;
-      padding: .7rem 1rem;
+      padding: .72rem 1rem;
       font-size: .875rem;
       font-weight: 600;
       transition: .2s;
@@ -100,6 +101,25 @@
       font-weight: 700;
     }
 
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      border: 1px solid #d7c4b1;
+      border-radius: 50%;
+      font-size: .8rem;
+      font-weight: 700;
+      transition: .2s;
+    }
+
+    .social-link:hover {
+      background: #634735;
+      color: white;
+      border-color: #634735;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       html {
         scroll-behavior: auto;
@@ -116,850 +136,890 @@
 
 <body class="bg-cream text-espresso">
 
-  <!-- ШАПКА -->
-  <header class="sticky top-0 z-40 border-b border-cocoa/10 bg-cream/95 backdrop-blur">
-    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-8">
+<!-- ШАПКА -->
+<header class="sticky top-0 z-40 border-b border-cocoa/10 bg-cream/95 backdrop-blur">
+  <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 lg:px-8">
 
-      <a href="#home" class="text-2xl font-bold leading-none tracking-tight text-cocoa">
-        Kibagroom
-        <span class="mt-1.5 block text-[10px] font-medium uppercase tracking-[.25em] text-cocoa/60">
-          Grooming with love
-        </span>
-      </a>
+    <a href="#home" class="shrink-0 text-2xl font-bold leading-none tracking-tight text-cocoa">
+      Kibagroom
+      <span class="mt-1.5 block text-[10px] font-medium uppercase tracking-[.25em] text-cocoa/60">
+        Grooming with love
+      </span>
+    </a>
 
-      <button id="menuBtn"
-        class="rounded-lg border border-cocoa/20 px-3 py-2 md:hidden"
-        aria-expanded="false" aria-label="Открыть меню">
-        ☰
+    <button id="menuBtn"
+      class="rounded-lg border border-cocoa/20 px-3 py-2 md:hidden"
+      aria-expanded="false"
+      aria-controls="mobileMenu"
+      aria-label="Открыть меню">
+      ☰
+    </button>
+
+    <nav class="hidden items-center gap-7 text-sm font-semibold md:flex">
+      <a class="hover:text-caramel" href="#about">О нас</a>
+      <a class="hover:text-caramel" href="#services">Услуги</a>
+      <a class="hover:text-caramel" href="#contact">Контакты</a>
+      <a class="hover:text-caramel" href="#reviews">Отзывы</a>
+    </nav>
+
+    <button
+      class="hidden rounded-full bg-cocoa px-5 py-3 text-sm font-semibold text-white hover:bg-espresso md:inline-flex"
+      data-open-cart>
+      Корзина <span class="ml-1" id="cartCount">0</span>
+    </button>
+  </div>
+
+  <nav id="mobileMenu" class="hidden border-t border-cocoa/10 bg-cream px-5 py-4 md:hidden">
+    <div class="flex flex-col gap-4 text-sm font-semibold">
+      <a href="#about">О нас</a>
+      <a href="#services">Услуги</a>
+      <a href="#contact">Контакты</a>
+      <a href="#reviews">Отзывы</a>
+      <button class="text-left" data-open-cart>
+        Корзина (<span id="mobileCount">0</span>)
       </button>
+    </div>
+  </nav>
+</header>
 
-      <nav class="hidden items-center gap-7 text-sm font-medium md:flex">
-        <a href="#services">Услуги</a>
-        <a href="#about">О нас</a>
-        <a href="#reviews">Отзывы</a>
-        <a href="#contact">Контакты</a>
-      </nav>
+<main>
 
-      <div class="hidden gap-2 md:flex">
-        <button class="rounded-full border border-cocoa/20 px-4 py-3 text-sm font-semibold"
-          data-open-search>
-          ⌕ Поиск услуг
+  <!-- ГЛАВНЫЙ ЭКРАН -->
+  <section id="home" class="hero-bg overflow-hidden">
+    <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 md:py-24 lg:grid-cols-2 lg:px-8">
+
+      <div>
+        <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-caramel/30 bg-white/50 px-4 py-2 text-sm text-cocoa">
+          <span class="text-caramel">✦</span>
+          Каждый питомец особенный
+        </div>
+
+        <h1 class="font-display text-5xl font-semibold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
+          Красота в каждой<br>
+          <span class="italic text-caramel">детали</span>.
+        </h1>
+
+        <p class="mt-6 max-w-xl text-base leading-8 text-cocoa/80 sm:text-lg">
+          Kibagroom — пространство заботы о ваших любимцах.
+          Профессиональный груминг, бережный подход и комфорт
+          на каждом этапе ухода.
+        </p>
+
+        <div class="mt-8">
+          <a href="#services"
+            class="inline-flex rounded-full bg-cocoa px-7 py-4 font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-espresso">
+            Выбрать услуги →
+          </a>
+        </div>
+
+        <div class="mt-10 flex flex-col gap-3 text-sm text-cocoa/80">
+          <span>✓ Индивидуальный подход</span>
+          <span>✓ Профессиональный уход</span>
+        </div>
+      </div>
+
+      <div class="relative mx-auto w-full max-w-xl">
+        <div class="absolute -right-4 -top-5 h-28 w-28 rounded-full bg-latte/70"></div>
+        <div class="absolute -bottom-5 -left-4 h-24 w-24 rounded-full bg-sage/80"></div>
+
+        <img
+          class="relative h-[360px] w-full rounded-[45%_45%_20px_20px] object-cover shadow-2xl sm:h-[480px]"
+          src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=85"
+          alt="Собаки на прогулке"
+          fetchpriority="high">
+      </div>
+    </div>
+  </section>
+
+  <!-- О НАС -->
+  <section id="about" class="bg-white py-20 sm:py-24">
+    <div class="mx-auto grid max-w-7xl items-center gap-10 px-5 lg:grid-cols-2 lg:gap-16 lg:px-8">
+
+      <div>
+        <p class="text-sm font-bold uppercase tracking-[.22em] text-caramel">
+          О нас
+        </p>
+
+        <h2 class="mt-4 font-display text-4xl font-semibold sm:text-5xl">
+          Забота начинается с доверия
+        </h2>
+
+        <p class="mt-6 leading-8 text-cocoa/75">
+          Kibagroom — место, где к каждому питомцу относятся
+          внимательно и бережно. Мы стремимся сделать уход
+          комфортным, а результат — красивым и аккуратным.
+        </p>
+
+        <div class="mt-6 space-y-3 text-sm text-cocoa/80">
+          <p>✓ Индивидуальный подход к каждому питомцу</p>
+          <p>✓ Внимание к комфорту и особенностям характера</p>
+          <p>✓ Обсуждение результата до процедуры</p>
+        </div>
+      </div>
+
+      <div class="mx-auto w-full max-w-md">
+
+        <!-- МЕСТО ДЛЯ ФОТО КИБЫ МАРИИ -->
+        <div class="flex aspect-[4/5] w-full flex-col items-center justify-center rounded-[2rem] border-2 border-dashed border-caramel/50 bg-cream px-8 text-center">
+          <div class="flex h-24 w-24 items-center justify-center rounded-full bg-latte text-4xl text-cocoa">
+            KM
+          </div>
+
+          <p class="mt-5 font-display text-2xl font-semibold">
+            Фото Кибы Марии
+          </p>
+
+          <p class="mt-2 max-w-xs text-sm leading-6 text-cocoa/60">
+            Здесь будет фотография владельца или мастера.
+          </p>
+        </div>
+
+        <div class="mt-6 text-center">
+          <h3 class="font-display text-2xl font-semibold">
+            Киба Мария
+          </h3>
+
+          <p class="mt-1 text-sm text-cocoa/60">
+            Основательница Kibagroom
+          </p>
+
+          <div class="mt-4 flex justify-center gap-3">
+            <a class="social-link"
+              href="https://t.me/kibagrooming"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Telegram">TG</a>
+
+            <a class="social-link"
+              href="https://www.instagram.com/kibagroom"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram">IG</a>
+
+            <a class="social-link"
+              href="https://www.youtube.com/@kibagroom"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="YouTube">YT</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- УСЛУГИ -->
+  <section id="services" class="py-20 sm:py-24">
+    <div class="mx-auto max-w-7xl px-5 lg:px-8">
+
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <p class="text-sm font-bold uppercase tracking-[.22em] text-caramel">
+          Наши услуги
+        </p>
+
+        <h2 class="mt-4 font-display text-4xl font-semibold sm:text-5xl">
+          Забота для каждого хвостика
+        </h2>
+
+        <p class="mt-5 leading-7 text-cocoa/70">
+          Выберите направление, чтобы увидеть подходящие услуги.
+        </p>
+      </div>
+
+      <div class="mb-8 flex flex-wrap justify-center gap-2">
+        <button class="category-button" data-cat="dogs" aria-pressed="true">
+          Уход за собачками
         </button>
 
-        <button class="rounded-full bg-cocoa px-5 py-3 text-sm font-semibold text-white hover:bg-espresso"
+        <button class="category-button" data-cat="cats" aria-pressed="false">
+          Уход за кошками
+        </button>
+
+        <button class="category-button" data-cat="behavior" aria-pressed="false">
+          Зоопсихология
+        </button>
+
+        <button class="category-button" data-cat="extra" aria-pressed="false">
+          Дополнительный уход
+        </button>
+      </div>
+
+      <div id="serviceGrid"
+        class="grid gap-7 md:grid-cols-2 lg:grid-cols-3"
+        aria-live="polite"></div>
+
+      <p class="mt-6 text-center text-sm text-cocoa/60">
+        Цены зависят от породы питомца
+      </p>
+
+      <div class="mt-8 text-center">
+        <button
+          class="rounded-full bg-cocoa px-6 py-3 font-semibold text-white hover:bg-espresso"
           data-open-cart>
-          Корзина <span id="cartCount">0</span>
+          Посмотреть корзину (<span id="serviceCartCount">0</span>)
         </button>
       </div>
     </div>
+  </section>
 
-    <nav id="mobileMenu"
-      class="hidden border-t border-cocoa/10 bg-cream px-5 py-4 md:hidden">
-      <div class="flex flex-col gap-4 text-sm">
-        <a href="#services">Услуги</a>
-        <a href="#about">О нас</a>
-        <a href="#reviews">Отзывы</a>
-        <a href="#contact">Контакты</a>
-        <button class="text-left font-semibold" data-open-cart>
-          Корзина (<span id="mobileCount">0</span>)
-        </button>
-      </div>
-    </nav>
-  </header>
+  <!-- КОНТАКТЫ -->
+  <section id="contact" class="bg-white py-20 sm:py-24">
+    <div class="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-2 lg:gap-20 lg:px-8">
 
-  <main>
-
-    <!-- ГЛАВНЫЙ ЭКРАН -->
-    <section id="home" class="hero-bg overflow-hidden">
-      <div class="mx-auto grid max-w-7xl items-center gap-12 px-5 py-16 md:py-24 lg:grid-cols-2 lg:px-8">
-
-        <div>
-          <div class="mb-6 inline-flex items-center gap-2 rounded-full border border-caramel/30 bg-white/50 px-4 py-2 text-sm text-cocoa">
-            <span class="text-caramel">✦</span>
-            Каждый питомец особенный
-          </div>
-
-          <h1 class="font-display text-5xl font-semibold leading-[1.08] tracking-tight sm:text-6xl lg:text-7xl">
-            Красота в каждой<br>
-            <span class="italic text-caramel">детали</span><span>.</span>
-          </h1>
-
-          <p class="mt-6 max-w-xl text-base leading-8 text-cocoa/80 sm:text-lg">
-            Kibagroom — пространство заботы о ваших любимцах.
-            Профессиональный груминг, бережный подход и комфорт
-            на каждом этапе ухода.
-          </p>
-
-          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a href="#services"
-              class="rounded-full bg-cocoa px-7 py-4 text-center font-semibold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-espresso">
-              Выбрать услуги →
-            </a>
-
-            <button data-open-search
-              class="rounded-full border border-cocoa/25 px-7 py-4 font-semibold text-cocoa hover:bg-white/60">
-              Найти услугу
-            </button>
-          </div>
-
-          <div class="mt-10 flex flex-wrap gap-x-6 gap-y-3 text-sm text-cocoa/80">
-            <span>✓ Индивидуальный подход</span>
-            <span>✓ Профессиональный уход</span>
-          </div>
-        </div>
-
-        <div class="relative mx-auto w-full max-w-xl">
-          <div class="absolute -right-4 -top-5 h-28 w-28 rounded-full bg-latte/70"></div>
-          <div class="absolute -bottom-5 -left-4 h-24 w-24 rounded-full bg-sage/80"></div>
-
-          <img
-            class="relative h-[360px] w-full rounded-[45%_45%_20px_20px] object-cover shadow-2xl sm:h-[480px]"
-            src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=1200&q=85"
-            alt="Две счастливые собаки">
-        </div>
-
-      </div>
-    </section>
-
-    <!-- ПРЕИМУЩЕСТВА -->
-    <section id="about" class="bg-white py-12">
-      <div class="mx-auto grid max-w-7xl gap-8 px-5 sm:grid-cols-3 lg:px-8">
-
-        <div class="flex gap-4">
-          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-cream text-2xl">✂</span>
-          <div>
-            <h2 class="font-semibold">Профессиональный уход</h2>
-            <p class="mt-1 text-sm leading-6 text-cocoa/70">
-              Внимание к деталям и аккуратная работа.
-            </p>
-          </div>
-        </div>
-
-        <div class="flex gap-4">
-          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-cream text-2xl">♡</span>
-          <div>
-            <h2 class="font-semibold">Бережное отношение</h2>
-            <p class="mt-1 text-sm leading-6 text-cocoa/70">
-              Учитываем характер и привычки питомца.
-            </p>
-          </div>
-        </div>
-
-        <div class="flex gap-4">
-          <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-cream text-2xl">✦</span>
-          <div>
-            <h2 class="font-semibold">Уютная атмосфера</h2>
-            <p class="mt-1 text-sm leading-6 text-cocoa/70">
-              Комфорт на каждом этапе ухода.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- УСЛУГИ -->
-    <section id="services" class="py-20 sm:py-24">
-      <div class="mx-auto max-w-7xl px-5 lg:px-8">
-
-        <div class="mx-auto mb-10 max-w-2xl text-center">
-          <p class="text-sm font-bold uppercase tracking-[.22em] text-caramel">Наши услуги</p>
-          <h2 class="mt-4 font-display text-4xl font-semibold sm:text-5xl">
-            Забота для каждого хвостика
-          </h2>
-          <p class="mt-5 leading-7 text-cocoa/70">
-            Выберите направление или найдите нужную услугу по названию.
-          </p>
-        </div>
-
-        <div class="mb-7 flex flex-wrap justify-center gap-2">
-          <button class="category-button" data-cat="dogs" aria-pressed="true">Уход за собачками</button>
-          <button class="category-button" data-cat="cats" aria-pressed="false">Уход за кошками</button>
-          <button class="category-button" data-cat="behavior" aria-pressed="false">Зоопсихология</button>
-          <button class="category-button" data-cat="extra" aria-pressed="false">Дополнительный уход</button>
-        </div>
-
-        <div id="searchPanel" class="mb-8 hidden rounded-3xl border border-cocoa/10 bg-white p-5 sm:p-7">
-          <label for="searchInput" class="mb-3 block font-semibold">Поиск по услугам</label>
-
-          <div class="flex flex-col gap-3 sm:flex-row">
-            <input id="searchInput" type="search"
-              class="min-w-0 flex-1 rounded-xl border border-cocoa/15 bg-cream/50 px-4 py-3"
-              placeholder="Например: стрижка когтей, кошка, консультация…">
-
-            <button id="clearSearch"
-              class="rounded-full border border-cocoa/20 px-5 py-3 font-semibold">
-              Очистить
-            </button>
-          </div>
-
-          <p class="mt-2 text-xs text-cocoa/60">Результаты обновляются по мере ввода.</p>
-          <div id="searchResults" class="mt-5 grid gap-4 md:grid-cols-2"></div>
-        </div>
-
-        <div id="serviceGrid" class="grid gap-7 md:grid-cols-2 lg:grid-cols-3" aria-live="polite"></div>
-
-        <p class="mt-5 text-center text-xs text-cocoa/60">
-          Цены зависят от породы питомца
+      <div class="flex flex-col justify-center">
+        <p class="text-sm font-bold uppercase tracking-[.22em] text-caramel">
+          Контакты
         </p>
 
-      </div>
-    </section>
+        <h2 class="mt-4 font-display text-4xl font-semibold leading-tight sm:text-5xl">
+          Красота в каждой<br>
+          <span class="italic text-caramel">детали.</span>
+        </h2>
 
-    <!-- ОТЗЫВЫ -->
-    <section id="reviews" class="bg-latte/40 py-20 sm:py-24">
-      <div class="mx-auto max-w-7xl px-5 lg:px-8">
-
-        <div class="mx-auto mb-12 max-w-2xl text-center">
-          <p class="text-sm font-bold uppercase tracking-[.22em] text-caramel">Отзывы</p>
-          <h2 class="mt-4 font-display text-4xl font-semibold sm:text-5xl">
-            Добрые слова и хвостики
-          </h2>
-          <p class="mt-5 leading-7 text-cocoa/70">
-            Довольные питомцы и спокойные хозяева — лучшая оценка нашей работы.
-          </p>
-        </div>
-
-        <div class="grid gap-6 md:grid-cols-3">
-
-          <article class="rounded-3xl bg-white p-7 shadow-sm">
-            <div class="text-lg tracking-widest text-caramel">★★★★★</div>
-            <p class="mt-5 leading-7 text-cocoa/80">
-              «Очень понравилось отношение к нашему питомцу. Всё прошло спокойно,
-              а шерсть стала невероятно мягкой!»
-            </p>
-            <div class="mt-6 border-t border-cocoa/10 pt-5">
-              <b>Анна</b>
-              <p class="mt-1 text-sm text-cocoa/60">Хозяйка шпица</p>
-            </div>
-          </article>
-
-          <article class="rounded-3xl bg-white p-7 shadow-sm">
-            <div class="text-lg tracking-widest text-caramel">★★★★★</div>
-            <p class="mt-5 leading-7 text-cocoa/80">
-              «Всё аккуратно, чисто и с заботой. Мастер рассказал,
-              как поддерживать результат дома».
-            </p>
-            <div class="mt-6 border-t border-cocoa/10 pt-5">
-              <b>Мария</b>
-              <p class="mt-1 text-sm text-cocoa/60">Хозяйка пуделя</p>
-            </div>
-          </article>
-
-          <article class="rounded-3xl bg-white p-7 shadow-sm">
-            <div class="text-lg tracking-widest text-caramel">★★★★★</div>
-            <p class="mt-5 leading-7 text-cocoa/80">
-              «Приятная атмосфера и внимательный подход.
-              Перед процедурой объясняют каждый этап».
-            </p>
-            <div class="mt-6 border-t border-cocoa/10 pt-5">
-              <b>Дина</b>
-              <p class="mt-1 text-sm text-cocoa/60">Хозяйка кошки</p>
-            </div>
-          </article>
-
-        </div>
-
-        <p class="mt-5 text-center text-xs text-cocoa/50">
-          Отзывы демонстрационные — замените их реальными перед публикацией.
+        <p class="mt-6 max-w-lg leading-8 text-cocoa/70">
+          Оставьте заявку — обсудим пожелания и подберём
+          подходящую процедуру для вашего питомца.
         </p>
-      </div>
-    </section>
 
-    <!-- КОНТАКТЫ И ФОРМА -->
-    <section id="contact" class="py-20 sm:py-24">
-      <div class="mx-auto grid max-w-7xl gap-12 px-5 lg:grid-cols-2 lg:gap-20 lg:px-8">
+        <div class="mt-8 space-y-5">
 
-        <div class="flex flex-col justify-center">
-          <p class="text-sm font-bold uppercase tracking-[.22em] text-caramel">Связаться с нами</p>
-
-          <h2 class="mt-4 font-display text-4xl font-semibold leading-tight sm:text-5xl">
-            Красота в каждой<br>
-            <span class="italic text-caramel">детали.</span>
-          </h2>
-
-          <p class="mt-6 max-w-lg leading-8 text-cocoa/70">
-            Оставьте заявку — обсудим пожелания, подберём подходящую процедуру
-            и ответим на ваши вопросы.
-          </p>
-
-          <div class="mt-8 space-y-5">
-
-            <div class="flex items-center gap-4">
-              <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-latte text-xl">⌖</span>
-              <div>
-                <p class="text-sm text-cocoa/60">Адрес</p>
-                <p class="font-semibold">проспект Строителей, 16, 4</p>
-              </div>
+          <div class="flex items-center gap-4">
+            <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-latte text-xl">⌖</span>
+            <div>
+              <p class="text-sm text-cocoa/60">Адрес</p>
+              <a class="font-semibold underline decoration-caramel underline-offset-4 hover:text-caramel"
+                href="https://www.google.com/maps/search/?api=1&query=%D0%BF%D1%80%D0%BE%D1%81%D0%BF%D0%B5%D0%BA%D1%82%20%D0%A1%D1%82%D1%80%D0%BE%D0%B8%D1%82%D0%B5%D0%BB%D0%B5%D0%B9%2C%2016%2C%204"
+                target="_blank"
+                rel="noopener noreferrer">
+                проспект Строителей, 16, 4 ↗
+              </a>
+              <p class="mt-1 text-xs text-cocoa/50">
+                Нажмите, чтобы открыть адрес на карте.
+              </p>
             </div>
+          </div>
 
-            <div class="flex items-center gap-4">
-              <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-latte text-xl">☎</span>
-              <div>
-                <p class="text-sm text-cocoa/60">Телефон</p>
-                <a href="tel:+79990000000" class="font-semibold hover:text-caramel">
-                  +7 (999) 000-00-00
-                </a>
-              </div>
+          <div class="flex items-center gap-4">
+            <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-latte text-xl">☎</span>
+            <div>
+              <p class="text-sm text-cocoa/60">Телефон</p>
+              <a href="tel:+79339657137" class="font-semibold hover:text-caramel">
+                +7 933 965-71-37
+              </a>
             </div>
+          </div>
 
-            <div class="flex items-center gap-4">
-              <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-latte text-xl">◷</span>
-              <div>
-                <p class="text-sm text-cocoa/60">Часы работы</p>
-                <p class="font-semibold">Ежедневно, 10:00–20:00</p>
-              </div>
+          <div class="flex items-center gap-4">
+            <span class="flex h-12 w-12 items-center justify-center rounded-2xl bg-latte text-xl">◷</span>
+            <div>
+              <p class="text-sm text-cocoa/60">Часы работы</p>
+              <p class="font-semibold">Ежедневно, 10:00–20:00</p>
             </div>
-
           </div>
         </div>
+      </div>
 
-        <form id="contactForm" class="rounded-3xl border border-cocoa/10 bg-white p-6 shadow-xl shadow-cocoa/5 sm:p-9" novalidate>
-          <h3 class="font-display text-2xl font-semibold">Заявка на услуги</h3>
-          <p class="mt-2 text-sm text-cocoa/60">
-            Добавьте услуги в корзину или напишите, что вам нужно.
-          </p>
+      <!-- ФОРМА -->
+      <form id="contactForm"
+        class="rounded-3xl border border-cocoa/10 bg-cream p-6 sm:p-9"
+        novalidate>
 
-          <div class="mt-7 space-y-5">
+        <h3 class="font-display text-2xl font-semibold">
+          Заявка на услуги
+        </h3>
 
-            <div>
-              <label for="name" class="mb-2 block text-sm font-semibold">Ваше имя *</label>
-              <input id="name" required minlength="2"
-                class="w-full rounded-xl border border-cocoa/15 bg-cream/50 px-4 py-3"
-                placeholder="Как к вам обращаться?">
-              <p id="nameError" class="error"></p>
-            </div>
+        <p class="mt-2 text-sm text-cocoa/60">
+          Заполните контакты, чтобы мы могли с вами связаться.
+        </p>
 
-            <div>
-              <label for="contactWay" class="mb-2 block text-sm font-semibold">Телефон или email *</label>
-              <input id="contactWay" required
-                class="w-full rounded-xl border border-cocoa/15 bg-cream/50 px-4 py-3"
-                placeholder="+7… или you@example.com">
-              <p id="contactError" class="error"></p>
-            </div>
+        <div class="mt-7 space-y-5">
 
-            <div>
-              <label for="message" class="mb-2 block text-sm font-semibold">Комментарий *</label>
-              <textarea id="message" rows="4" required minlength="5"
-                class="w-full rounded-xl border border-cocoa/15 bg-cream/50 px-4 py-3"
-                placeholder="Порода, выбранные услуги, удобное время…"></textarea>
-              <p id="messageError" class="error"></p>
-            </div>
-
-            <label class="flex items-start gap-3 text-xs leading-5 text-cocoa/70">
-              <input id="consent" type="checkbox" required class="mt-1 accent-cocoa">
-              <span>Я согласен(на) на обработку данных для ответа на обращение. *</span>
+          <div>
+            <label for="name" class="mb-2 block text-sm font-semibold">
+              Ваше имя *
             </label>
 
-            <p id="consentError" class="error"></p>
+            <input id="name"
+              required
+              minlength="2"
+              autocomplete="name"
+              class="w-full rounded-xl border border-cocoa/15 bg-white px-4 py-3"
+              placeholder="Как к вам обращаться?">
 
-            <button type="submit"
-              class="w-full rounded-full bg-cocoa px-6 py-4 font-semibold text-white hover:bg-espresso">
-              Оставить заявку →
-            </button>
-
-            <p id="formStatus" class="text-sm leading-6" role="status" aria-live="polite"></p>
-
-            <p class="text-xs leading-5 text-cocoa/50">
-              Демонстрационная форма: для реальной отправки заявок нужно подключить сервис форм или сервер.
-            </p>
+            <p id="nameError" class="error"></p>
           </div>
-        </form>
 
-      </div>
-    </section>
+          <div>
+            <label for="contactWay" class="mb-2 block text-sm font-semibold">
+              Телефон или email *
+            </label>
 
-    <!-- НИЖНИЙ БЛОК -->
-    <section class="bg-cocoa px-5 py-16 text-center text-white sm:py-20">
-      <div class="mx-auto max-w-2xl">
-        <p class="text-3xl">🐾</p>
-        <h2 class="mt-4 font-display text-3xl font-semibold sm:text-4xl">
-          Маленькие лапки заслуживают большой заботы
-        </h2>
-        <p class="mt-4 leading-7 text-white/75">
-          До встречи в Kibagroom — месте, где красота начинается с любви.
-        </p>
-        <a href="#services"
-          class="mt-7 inline-flex rounded-full bg-cream px-7 py-4 font-semibold text-cocoa">
-          Выбрать услугу →
-        </a>
-      </div>
-    </section>
+            <input id="contactWay"
+              required
+              autocomplete="email"
+              class="w-full rounded-xl border border-cocoa/15 bg-white px-4 py-3"
+              placeholder="+7… или you@example.com">
 
-  </main>
+            <p id="contactError" class="error"></p>
+          </div>
 
-  <footer class="bg-espresso px-5 py-7 text-white/70">
-    <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-center sm:flex-row">
-      <a href="#home" class="text-xl font-bold text-cream">Kibagroom</a>
-      <p class="text-xs">© <span id="year"></span> Kibagroom. Забота в каждой детали.</p>
-      <a href="#home" class="text-xs hover:text-white">Наверх ↑</a>
+          <div>
+            <label for="message" class="mb-2 block text-sm font-semibold">
+              Комментарий и выбранные услуги *
+            </label>
+
+            <textarea id="message"
+              rows="5"
+              required
+              minlength="5"
+              class="w-full rounded-xl border border-cocoa/15 bg-white px-4 py-3"
+              placeholder="Какая услуга нужна и какая порода питомца?"></textarea>
+
+            <p id="messageError" class="error"></p>
+          </div>
+
+          <label class="flex items-start gap-3 text-xs leading-5 text-cocoa/70">
+            <input id="consent" type="checkbox" required class="mt-1 accent-cocoa">
+            <span>Я согласен(на) на обработку данных для ответа на обращение. *</span>
+          </label>
+
+          <p id="consentError" class="error"></p>
+
+          <button type="submit"
+            class="w-full rounded-full bg-cocoa px-6 py-4 font-semibold text-white hover:bg-espresso">
+            Оставить заявку →
+          </button>
+
+          <p id="formStatus"
+            class="text-sm leading-6"
+            role="status"
+            aria-live="polite"></p>
+
+          <p class="text-xs leading-5 text-cocoa/50">
+            Форма проверяет заполнение, но для реальной отправки заявок
+            необходимо подключить сервис форм или сервер.
+          </p>
+        </div>
+      </form>
     </div>
-  </footer>
+  </section>
 
-  <!-- КОРЗИНА -->
-  <div id="backdrop" class="fixed inset-0 z-50 hidden bg-espresso/40"></div>
+  <!-- ЗАКЛЮЧИТЕЛЬНЫЙ БЛОК -->
+  <section class="bg-cocoa px-5 py-16 text-center text-white sm:py-20">
+    <div class="mx-auto max-w-2xl">
+      <p class="text-3xl">🐾</p>
 
-  <aside id="cartDrawer"
-    class="fixed right-0 top-0 z-[60] flex h-full w-full max-w-md translate-x-full flex-col bg-cream shadow-2xl transition-transform duration-300"
-    role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+      <h2 class="mt-4 font-display text-3xl font-semibold sm:text-4xl">
+        Маленькие лапки заслуживают большой заботы
+      </h2>
 
-    <div class="flex items-center justify-between border-b border-cocoa/10 p-5">
-      <div>
-        <h2 id="cartTitle" class="font-display text-2xl font-semibold">Ваша корзина</h2>
-        <p class="text-sm text-cocoa/60">Выбранные услуги</p>
-      </div>
-      <button id="closeCart" class="rounded-full border border-cocoa/20 px-3 py-2" aria-label="Закрыть корзину">✕</button>
-    </div>
-
-    <div id="cartItems" class="flex-1 space-y-3 overflow-y-auto p-5">
-      <p class="text-sm text-cocoa/60">Корзина пока пуста.</p>
-    </div>
-
-    <div class="border-t border-cocoa/10 bg-white p-5">
-      <div class="mb-4 flex items-center justify-between">
-        <span class="font-semibold">Итого от:</span>
-        <strong id="cartTotal" class="text-xl text-cocoa">0 ₽</strong>
-      </div>
-      <p class="mb-4 text-xs leading-5 text-cocoa/60">
-        Стоимость ориентировочная. Цены зависят от породы питомца.
+      <p class="mt-4 leading-7 text-white/75">
+        До встречи в Kibagroom — месте, где красота начинается с любви.
       </p>
-      <button id="checkout" class="w-full rounded-full bg-cocoa px-6 py-4 font-semibold text-white">
-        Оформить заявку →
-      </button>
     </div>
-  </aside>
+  </section>
 
-  <div id="toast"
-    class="fixed bottom-5 left-1/2 z-[70] hidden -translate-x-1/2 rounded-xl bg-espresso px-5 py-3 text-sm text-white shadow-xl"
-    role="status" aria-live="polite"></div>
+</main>
 
-  <script>
-    // КАТАЛОГ УСЛУГ
-    const services = [
-      {
-        id: "d1", cat: "dogs",
-        title: "Комплексный груминг собаки",
-        desc: "Купание, сушка, расчёсывание и стрижка с учётом породы.",
-        price: 2000,
-        img: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=900&q=85"
-      },
-      {
-        id: "d2", cat: "dogs",
-        title: "Купание и сушка собаки",
-        desc: "Бережное очищение шерсти и аккуратная сушка.",
-        price: 1200,
-        img: "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=900&q=85"
-      },
-      {
-        id: "d3", cat: "dogs",
-        title: "Стрижка когтей собаке",
-        desc: "Гигиеническая процедура с заботой о лапках.",
-        price: 500,
-        img: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=900&q=85"
-      },
-      {
-        id: "c1", cat: "cats",
-        title: "Вычесывание кошки",
-        desc: "Удаление лишнего подшёрстка и уход за шерстью.",
-        price: 1000,
-        img: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=900&q=85"
-      },
-      {
-        id: "c2", cat: "cats",
-        title: "Гигиенический уход за кошкой",
-        desc: "Деликатный уход за шерстью, лапками и коготками.",
-        price: 1500,
-        img: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=900&q=85"
-      },
-      {
-        id: "c3", cat: "cats",
-        title: "Стрижка когтей кошке",
-        desc: "Короткая процедура для комфортного домашнего ухода.",
-        price: 500,
-        img: "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&w=900&q=85"
-      },
-      {
-        id: "z1", cat: "behavior",
-        title: "Консультация зоопсихолога",
-        desc: "Разбор поведения питомца и рекомендации для дома.",
-        price: 2500,
-        img: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=85"
-      },
-      {
-        id: "z2", cat: "behavior",
-        title: "Адаптация к грумингу",
-        desc: "Постепенное знакомство с инструментами и процедурами.",
-        price: 1800,
-        img: "https://images.unsplash.com/photo-1551717743-49959800b1f6?auto=format&fit=crop&w=900&q=85"
-      },
-      {
-        id: "e1", cat: "extra",
-        title: "Уход за лапками",
-        desc: "Обработка шерсти между подушечками и гигиена лап.",
-        price: 600,
-        img: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=900&q=85"
-      },
-      {
-        id: "e2", cat: "extra",
-        title: "Дополнительная гигиена",
-        desc: "Аккуратный уход за ушами и чувствительными зонами.",
-        price: 400,
-        img: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=900&q=85"
-      },
-      {
-        id: "e3", cat: "extra",
-        title: "Гигиена полости рта",
-        desc: "Дополнительный уход за зубами и свежестью дыхания.",
-        price: 700,
-        img: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=900&q=85"
-      }
-    ];
+<!-- ПОДВАЛ -->
+<footer class="bg-espresso px-5 py-7 text-white/70">
+  <div class="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 text-center sm:flex-row">
+    <a href="#home" class="text-xl font-bold text-cream">Kibagroom</a>
 
-    const categoryNames = {
-      dogs: "Уход за собачками",
-      cats: "Уход за кошками",
-      behavior: "Зоопсихология",
-      extra: "Дополнительный уход"
-    };
+    <p class="text-xs">
+      © <span id="year"></span> Kibagroom. Забота в каждой детали.
+    </p>
 
-    const cart = new Map();
-    let activeCat = "dogs";
-    const $ = id => document.getElementById(id);
-    const money = n => new Intl.NumberFormat("ru-RU").format(n) + " ₽";
+    <a href="#home" class="text-xs hover:text-white">Наверх ↑</a>
+  </div>
+</footer>
 
-    // СОЗДАНИЕ КАРТОЧКИ УСЛУГИ
-    function card(s) {
-      return `
-        <article class="service-card overflow-hidden rounded-3xl border border-cocoa/10 bg-white transition hover:-translate-y-1 hover:shadow-xl">
-          <div class="overflow-hidden">
-            <img class="photo h-52 w-full object-cover"
-              src="${s.img}" alt="${s.title}" loading="lazy">
-          </div>
-          <div class="p-6">
-            <span class="rounded-full bg-sage px-3 py-1 text-xs font-semibold text-cocoa">
-              ${categoryNames[s.cat]}
+<!-- КОРЗИНА -->
+<div id="backdrop" class="fixed inset-0 z-50 hidden bg-espresso/40"></div>
+
+<aside id="cartDrawer"
+  class="fixed right-0 top-0 z-[60] flex h-full w-full max-w-md translate-x-full flex-col bg-cream shadow-2xl transition-transform duration-300"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="cartTitle">
+
+  <div class="flex items-center justify-between border-b border-cocoa/10 p-5">
+    <div>
+      <h2 id="cartTitle" class="font-display text-2xl font-semibold">Ваша корзина</h2>
+      <p class="text-sm text-cocoa/60">Выбранные услуги</p>
+    </div>
+
+    <button id="closeCart"
+      class="rounded-full border border-cocoa/20 px-3 py-2"
+      aria-label="Закрыть корзину">✕</button>
+  </div>
+
+  <div id="cartItems" class="flex-1 space-y-3 overflow-y-auto p-5">
+    <p class="text-sm text-cocoa/60">Корзина пока пуста.</p>
+  </div>
+
+  <div class="border-t border-cocoa/10 bg-white p-5">
+    <div class="mb-4 flex items-center justify-between">
+      <span class="font-semibold">Итого от:</span>
+      <strong id="cartTotal" class="text-xl text-cocoa">0 ₽</strong>
+    </div>
+
+    <p class="mb-4 text-xs leading-5 text-cocoa/60">
+      Стоимость ориентировочная. Цены зависят от породы питомца.
+    </p>
+
+    <button id="checkout"
+      class="w-full rounded-full bg-cocoa px-6 py-4 font-semibold text-white">
+      Перейти к заявке →
+    </button>
+  </div>
+</aside>
+
+<div id="toast"
+  class="fixed bottom-5 left-1/2 z-[70] hidden -translate-x-1/2 rounded-xl bg-espresso px-5 py-3 text-sm text-white shadow-xl"
+  role="status"
+  aria-live="polite"></div>
+
+<script>
+  /*
+    В каталоге сейчас примеры услуг.
+    После получения скриншотов прайса можно заменить названия, цены и фотографии.
+  */
+
+  const services = [
+    {
+      id: "d1",
+      cat: "dogs",
+      title: "Комплексный груминг собаки",
+      desc: "Купание, сушка, расчёсывание и стрижка с учётом породы.",
+      price: 2000,
+      img: "https://images.unsplash.com/photo-1516734212186-a967f81ad0d7?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+      id: "d2",
+      cat: "dogs",
+      title: "Купание и сушка собаки",
+      desc: "Бережное очищение шерсти и аккуратная сушка.",
+      price: 1200,
+      img: "https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+      id: "d3",
+      cat: "dogs",
+      title: "Стрижка когтей собаке",
+      desc: "Гигиеническая процедура с заботой о лапках.",
+      price: 500,
+      img: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+      id: "c1",
+      cat: "cats",
+      title: "Вычесывание кошки",
+      desc: "Удаление лишнего подшёрстка и уход за шерстью.",
+      price: 1000,
+      img: "https://images.unsplash.com/photo-1573865526739-10659fec78a5?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+      id: "c2",
+      cat: "cats",
+      title: "Гигиенический уход за кошкой",
+      desc: "Деликатный уход за шерстью, лапками и коготками.",
+      price: 1500,
+      img: "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+      id: "c3",
+      cat: "cats",
+      title: "Стрижка когтей кошке",
+      desc: "Короткая процедура для комфортного домашнего ухода.",
+      price: 500,
+      img: "https://images.unsplash.com/photo-1495360010541-f48722b34f7d?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+      id: "z1",
+      cat: "behavior",
+      title: "Консультация зоопсихолога",
+      desc: "Разбор поведения питомца и рекомендации для дома.",
+      price: 2500,
+      img: "https://images.unsplash.com/photo-1548199973-03cce0bbc87b?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+      id: "z2",
+      cat: "behavior",
+      title: "Адаптация к грумингу",
+      desc: "Постепенное знакомство с инструментами и процедурами.",
+      price: 1800,
+      img: "https://images.unsplash.com/photo-1551717743-49959800b1f6?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+      id: "e1",
+      cat: "extra",
+      title: "Уход за лапками",
+      desc: "Обработка шерсти между подушечками и гигиена лап.",
+      price: 600,
+      img: "https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+      id: "e2",
+      cat: "extra",
+      title: "Дополнительная гигиена",
+      desc: "Аккуратный уход за ушами и чувствительными зонами.",
+      price: 400,
+      img: "https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=900&q=85"
+    },
+    {
+      id: "e3",
+      cat: "extra",
+      title: "Гигиена полости рта",
+      desc: "Дополнительный уход за зубами и свежестью дыхания.",
+      price: 700,
+      img: "https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=900&q=85"
+    }
+  ];
+
+  const categoryNames = {
+    dogs: "Уход за собачками",
+    cats: "Уход за кошками",
+    behavior: "Зоопсихология",
+    extra: "Дополнительный уход"
+  };
+
+  const cart = new Map();
+  let activeCat = "dogs";
+
+  const $ = id => document.getElementById(id);
+
+  const money = n =>
+    new Intl.NumberFormat("ru-RU").format(n) + " ₽";
+
+  function escapeHTML(value) {
+    return String(value).replace(/[&<>"']/g, ch => ({
+      "&": "&amp;",
+      "<": "&lt;",
+      ">": "&gt;",
+      '"': "&quot;",
+      "'": "&#39;"
+    }[ch]));
+  }
+
+  function card(service) {
+    return `
+      <article class="service-card overflow-hidden rounded-3xl border border-cocoa/10 bg-white transition hover:-translate-y-1 hover:shadow-xl">
+
+        <div class="overflow-hidden">
+          <img
+            class="photo h-52 w-full object-cover"
+            src="${service.img}"
+            alt="${escapeHTML(service.title)}"
+            loading="lazy">
+        </div>
+
+        <div class="p-6">
+          <span class="rounded-full bg-sage px-3 py-1 text-xs font-semibold text-cocoa">
+            ${categoryNames[service.cat]}
+          </span>
+
+          <h3 class="mt-4 font-display text-xl font-semibold">
+            ${escapeHTML(service.title)}
+          </h3>
+
+          <p class="mt-3 min-h-14 text-sm leading-6 text-cocoa/70">
+            ${escapeHTML(service.desc)}
+          </p>
+
+          <div class="mt-5 flex items-center justify-between gap-3 border-t border-cocoa/10 pt-4">
+            <span class="font-semibold text-cocoa">
+              От ${money(service.price)}
             </span>
-            <h3 class="mt-4 font-display text-xl font-semibold">${s.title}</h3>
-            <p class="mt-3 min-h-14 text-sm leading-6 text-cocoa/70">${s.desc}</p>
-            <div class="mt-5 flex items-center justify-between gap-3 border-t border-cocoa/10 pt-4">
-              <span class="font-semibold text-cocoa">От ${money(s.price)}</span>
-              <button data-add="${s.id}"
-                class="rounded-full bg-cocoa px-4 py-2.5 text-sm font-semibold text-white hover:bg-espresso">
-                В корзину +
-              </button>
-            </div>
+
+            <button
+              data-add="${service.id}"
+              class="rounded-full bg-cocoa px-4 py-2.5 text-sm font-semibold text-white hover:bg-espresso">
+              В корзину +
+            </button>
           </div>
-        </article>`;
-    }
+        </div>
+      </article>
+    `;
+  }
 
-    // ФИЛЬТРАЦИЯ ПО КАТЕГОРИЯМ
-    function renderCategory() {
-      $("serviceGrid").innerHTML = services
-        .filter(s => s.cat === activeCat)
-        .map(card)
-        .join("");
+  function renderCategory() {
+    $("serviceGrid").innerHTML = services
+      .filter(service => service.cat === activeCat)
+      .map(card)
+      .join("");
 
-      document.querySelectorAll("[data-cat]").forEach(button => {
-        button.setAttribute(
-          "aria-pressed",
-          String(button.dataset.cat === activeCat)
-        );
-      });
-    }
-
-    // ПОИСК
-    function renderSearch() {
-      const query = $("searchInput").value.trim().toLocaleLowerCase("ru");
-
-      if (!query) {
-        $("searchResults").innerHTML =
-          '<p class="text-sm text-cocoa/60">Введите название услуги или направление.</p>';
-        return;
-      }
-
-      const found = services.filter(service =>
-        (
-          service.title + " " +
-          service.desc + " " +
-          categoryNames[service.cat]
-        ).toLocaleLowerCase("ru").includes(query)
+    document.querySelectorAll("[data-cat]").forEach(button => {
+      button.setAttribute(
+        "aria-pressed",
+        String(button.dataset.cat === activeCat)
       );
+    });
+  }
 
-      $("searchResults").innerHTML = found.length
-        ? found.map(card).join("")
-        : '<p class="text-sm text-cocoa/60">Ничего не найдено. Попробуйте другое слово.</p>';
-    }
+  function toast(message) {
+    $("toast").textContent = message;
+    $("toast").classList.remove("hidden");
 
-    function toast(message) {
-      $("toast").textContent = message;
-      $("toast").classList.remove("hidden");
-      clearTimeout(window.toastTimer);
-      window.toastTimer = setTimeout(
-        () => $("toast").classList.add("hidden"),
-        3000
-      );
-    }
+    clearTimeout(window.toastTimer);
 
-    // ОТКРЫТИЕ И ЗАКРЫТИЕ КОРЗИНЫ
-    function openCart() {
-      $("cartDrawer").classList.remove("translate-x-full");
-      $("backdrop").classList.remove("hidden");
-      document.body.classList.add("overflow-hidden");
-    }
+    window.toastTimer = setTimeout(() => {
+      $("toast").classList.add("hidden");
+    }, 3000);
+  }
 
-    function closeCart() {
-      $("cartDrawer").classList.add("translate-x-full");
-      $("backdrop").classList.add("hidden");
-      document.body.classList.remove("overflow-hidden");
-    }
+  function openCart() {
+    $("cartDrawer").classList.remove("translate-x-full");
+    $("backdrop").classList.remove("hidden");
+    document.body.classList.add("overflow-hidden");
+    $("closeCart").focus();
+  }
 
-    // ДОБАВЛЕНИЕ УСЛУГИ
-    function add(id) {
-      cart.set(id, (cart.get(id) || 0) + 1);
+  function closeCart() {
+    $("cartDrawer").classList.add("translate-x-full");
+    $("backdrop").classList.add("hidden");
+    document.body.classList.remove("overflow-hidden");
+  }
+
+  function renderCart() {
+    const count = [...cart.values()].reduce((a, b) => a + b, 0);
+
+    ["cartCount", "mobileCount", "serviceCartCount"].forEach(id => {
+      $(id).textContent = count;
+    });
+
+    const items = [...cart]
+      .map(([id, qty]) => ({
+        service: services.find(service => service.id === id),
+        qty
+      }))
+      .filter(item => item.service);
+
+    const total = items.reduce(
+      (sum, item) => sum + item.service.price * item.qty,
+      0
+    );
+
+    $("cartTotal").textContent = money(total);
+
+    $("cartItems").innerHTML = items.length
+      ? items.map(({ service, qty }) => `
+        <article class="rounded-2xl border border-cocoa/10 bg-white p-4">
+          <div class="flex items-start justify-between gap-3">
+            <div>
+              <h3 class="font-semibold">${escapeHTML(service.title)}</h3>
+              <p class="mt-1 text-sm text-cocoa/60">
+                От ${money(service.price)} за услугу
+              </p>
+            </div>
+
+            <button
+              data-remove="${service.id}"
+              aria-label="Удалить услугу"
+              class="text-cocoa/50">✕</button>
+          </div>
+
+          <div class="mt-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+              <button class="qty" data-minus="${service.id}">−</button>
+              <span>${qty}</span>
+              <button class="qty" data-plus="${service.id}">+</button>
+            </div>
+
+            <strong>${money(service.price * qty)}</strong>
+          </div>
+        </article>
+      `).join("")
+      : '<p class="text-sm text-cocoa/60">Корзина пока пуста. Выберите услуги в каталоге.</p>';
+  }
+
+  // Категории услуг
+  document.querySelectorAll("[data-cat]").forEach(button => {
+    button.addEventListener("click", () => {
+      activeCat = button.dataset.cat;
+      renderCategory();
+    });
+  });
+
+  // Добавление, удаление и изменение количества услуг
+  document.addEventListener("click", event => {
+    const add = event.target.closest("[data-add]");
+
+    if (add) {
+      cart.set(add.dataset.add, (cart.get(add.dataset.add) || 0) + 1);
       renderCart();
       toast("Услуга добавлена в корзину");
+      return;
     }
 
-    // ОБНОВЛЕНИЕ КОРЗИНЫ И СТОИМОСТИ
-    function renderCart() {
-      const count = [...cart.values()].reduce((sum, qty) => sum + qty, 0);
+    const plus = event.target.closest("[data-plus]");
 
-      $("cartCount").textContent = count;
-      $("mobileCount").textContent = count;
+    if (plus) {
+      const id = plus.dataset.plus;
+      cart.set(id, (cart.get(id) || 0) + 1);
+      renderCart();
+      return;
+    }
 
-      const items = [...cart].map(([id, qty]) => ({
-        service: services.find(item => item.id === id),
-        qty
-      }));
+    const minus = event.target.closest("[data-minus]");
 
-      const total = items.reduce(
-        (sum, item) => sum + item.service.price * item.qty,
-        0
+    if (minus) {
+      const id = minus.dataset.minus;
+      const qty = (cart.get(id) || 0) - 1;
+
+      if (qty < 1) {
+        cart.delete(id);
+      } else {
+        cart.set(id, qty);
+      }
+
+      renderCart();
+      return;
+    }
+
+    const remove = event.target.closest("[data-remove]");
+
+    if (remove) {
+      cart.delete(remove.dataset.remove);
+      renderCart();
+    }
+  });
+
+  // Открытие и закрытие корзины
+  document.querySelectorAll("[data-open-cart]").forEach(button => {
+    button.addEventListener("click", () => {
+      $("mobileMenu").classList.add("hidden");
+      openCart();
+    });
+  });
+
+  $("closeCart").addEventListener("click", closeCart);
+  $("backdrop").addEventListener("click", closeCart);
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape") closeCart();
+  });
+
+  // Перенос услуг из корзины в форму заявки
+  $("checkout").addEventListener("click", () => {
+    if (!cart.size) {
+      toast("Сначала добавьте услуги в корзину.");
+      return;
+    }
+
+    const lines = [...cart].map(([id, qty]) => {
+      const service = services.find(item => item.id === id);
+
+      return `${service.title} × ${qty} — от ${money(service.price * qty)}`;
+    }).join("\n");
+
+    $("message").value =
+      "Хочу оставить заявку на услуги:\n" +
+      lines +
+      "\nОбщая стоимость от: " +
+      $("cartTotal").textContent;
+
+    closeCart();
+    $("contact").scrollIntoView({ behavior: "smooth" });
+    $("name").focus();
+
+    toast("Услуги перенесены в заявку. Заполните контакты.");
+  });
+
+  // Валидация формы
+  const rules = [
+    {
+      input: $("name"),
+      error: $("nameError"),
+      valid: value => value.trim().length >= 2,
+      message: "Введите имя (минимум 2 символа)."
+    },
+    {
+      input: $("contactWay"),
+      error: $("contactError"),
+      valid: value =>
+        /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()) ||
+        /^[+()\d\s-]{7,}$/.test(value.trim()),
+      message: "Введите корректный телефон или email."
+    },
+    {
+      input: $("message"),
+      error: $("messageError"),
+      valid: value => value.trim().length >= 5,
+      message: "Напишите сообщение (минимум 5 символов)."
+    }
+  ];
+
+  function validate(rule) {
+    const valid = rule.valid(rule.input.value);
+
+    rule.error.textContent = valid ? "" : rule.message;
+    rule.input.setAttribute("aria-invalid", String(!valid));
+
+    return valid;
+  }
+
+  rules.forEach(rule => {
+    rule.input.addEventListener("input", () => validate(rule));
+    rule.input.addEventListener("blur", () => validate(rule));
+  });
+
+  $("contactForm").addEventListener("submit", event => {
+    event.preventDefault();
+
+    const valid = rules.map(validate).every(Boolean);
+    const consent = $("consent").checked;
+
+    $("consentError").textContent = consent
+      ? ""
+      : "Необходимо согласиться на обработку данных.";
+
+    if (!valid || !consent) {
+      $("formStatus").textContent =
+        "Пожалуйста, проверьте заполнение формы.";
+
+      $("formStatus").className =
+        "text-sm leading-6 text-red-700";
+
+      const bad = event.currentTarget.querySelector(
+        '[aria-invalid="true"]'
       );
 
-      $("cartTotal").textContent = money(total);
+      if (bad) bad.focus();
 
-      $("cartItems").innerHTML = items.length
-        ? items.map(({service, qty}) => `
-          <article class="rounded-2xl border border-cocoa/10 bg-white p-4">
-            <div class="flex items-start justify-between gap-3">
-              <div>
-                <h3 class="font-semibold">${service.title}</h3>
-                <p class="mt-1 text-sm text-cocoa/60">От ${money(service.price)} за услугу</p>
-              </div>
-              <button data-remove="${service.id}" aria-label="Удалить"
-                class="text-cocoa/50">✕</button>
-            </div>
-            <div class="mt-3 flex items-center justify-between">
-              <div class="flex items-center gap-3">
-                <button class="qty" data-minus="${service.id}">−</button>
-                <span>${qty}</span>
-                <button class="qty" data-plus="${service.id}">+</button>
-              </div>
-              <strong>${money(service.price * qty)}</strong>
-            </div>
-          </article>
-        `).join("")
-        : '<p class="text-sm text-cocoa/60">Корзина пока пуста. Выберите услуги в каталоге.</p>';
+      return;
     }
 
-    function openSearch() {
-      $("searchPanel").classList.remove("hidden");
-      $("searchPanel").scrollIntoView({
-        behavior: "smooth",
-        block: "center"
-      });
-      setTimeout(() => $("searchInput").focus(), 200);
-      renderSearch();
-    }
+    $("formStatus").textContent =
+      "Спасибо, " + $("name").value.trim() +
+      "! Форма заполнена корректно, но для отправки заявки нужно подключить сервис форм.";
 
-    // КАТЕГОРИИ
-    document.querySelectorAll("[data-cat]").forEach(button => {
-      button.addEventListener("click", () => {
-        activeCat = button.dataset.cat;
-        renderCategory();
-      });
+    $("formStatus").className =
+      "text-sm leading-6 text-green-800";
+  });
+
+  // Мобильное меню
+  $("menuBtn").addEventListener("click", () => {
+    const menu = $("mobileMenu");
+    const isOpen = !menu.classList.contains("hidden");
+
+    menu.classList.toggle("hidden");
+    $("menuBtn").setAttribute("aria-expanded", String(!isOpen));
+    $("menuBtn").textContent = isOpen ? "☰" : "×";
+  });
+
+  $("mobileMenu").querySelectorAll("a").forEach(link => {
+    link.addEventListener("click", () => {
+      $("mobileMenu").classList.add("hidden");
+      $("menuBtn").setAttribute("aria-expanded", "false");
+      $("menuBtn").textContent = "☰";
     });
+  });
 
-    // КНОПКИ УСЛУГ И КОРЗИНЫ
-    document.addEventListener("click", event => {
-      const addButton = event.target.closest("[data-add]");
-      if (addButton) return add(addButton.dataset.add);
+  $("year").textContent = new Date().getFullYear();
 
-      const plusButton = event.target.closest("[data-plus]");
-      if (plusButton) {
-        const id = plusButton.dataset.plus;
-        cart.set(id, cart.get(id) + 1);
-        return renderCart();
-      }
+  renderCategory();
+  renderCart();
+</script>
 
-      const minusButton = event.target.closest("[data-minus]");
-      if (minusButton) {
-        const id = minusButton.dataset.minus;
-        const qty = cart.get(id) - 1;
-
-        if (qty < 1) cart.delete(id);
-        else cart.set(id, qty);
-
-        return renderCart();
-      }
-
-      const removeButton = event.target.closest("[data-remove]");
-      if (removeButton) {
-        cart.delete(removeButton.dataset.remove);
-        renderCart();
-      }
-    });
-
-    document.querySelectorAll("[data-open-search]").forEach(button => {
-      button.addEventListener("click", openSearch);
-    });
-
-    document.querySelectorAll("[data-open-cart]").forEach(button => {
-      button.addEventListener("click", () => {
-        $("mobileMenu").classList.add("hidden");
-        openCart();
-      });
-    });
-
-    $("searchInput").addEventListener("input", renderSearch);
-
-    $("clearSearch").addEventListener("click", () => {
-      $("searchInput").value = "";
-      renderSearch();
-      $("searchInput").focus();
-    });
-
-    $("closeCart").addEventListener("click", closeCart);
-    $("backdrop").addEventListener("click", closeCart);
-
-    document.addEventListener("keydown", event => {
-      if (event.key === "Escape") closeCart();
-    });
-
-    // ПЕРЕНОС УСЛУГ ИЗ КОРЗИНЫ В ФОРМУ
-    $("checkout").addEventListener("click", () => {
-      if (!cart.size) {
-        return toast("Сначала добавьте услуги в корзину.");
-      }
-
-      const lines = [...cart].map(([id, qty]) => {
-        const service = services.find(item => item.id === id);
-        return `${service.title} × ${qty} — от ${money(service.price * qty)}`;
-      }).join("\n");
-
-      $("message").value =
-        "Хочу оставить заявку на услуги:\n" +
-        lines +
-        "\nОбщая стоимость от: " +
-        $("cartTotal").textContent;
-
-      closeCart();
-      $("contact").scrollIntoView({behavior: "smooth"});
-      $("name").focus();
-
-      toast("Услуги перенесены в заявку. Заполните контакты.");
-    });
-
-    // ВАЛИДАЦИЯ ФОРМЫ
-    const rules = [
-      {
-        input: $("name"),
-        error: $("nameError"),
-        valid: value => value.trim().length >= 2,
-        message: "Введите имя (минимум 2 символа)."
-      },
-      {
-        input: $("contactWay"),
-        error: $("contactError"),
-        valid: value =>
-          /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value.trim()) ||
-          /^[+()\d\s-]{7,}$/.test(value.trim()),
-        message: "Введите корректный телефон или email."
-      },
-      {
-        input: $("message"),
-        error: $("messageError"),
-        valid: value => value.trim().length >= 5,
-        message: "Напишите сообщение (минимум 5 символов)."
-      }
-    ];
-
-    function validate(rule) {
-      const valid = rule.valid(rule.input.value);
-
-      rule.error.textContent = valid ? "" : rule.message;
-      rule.input.setAttribute("aria-invalid", String(!valid));
-
-      return valid;
-    }
-
-    rules.forEach(rule => {
-      rule.input.addEventListener("input", () => validate(rule));
-      rule.input.addEventListener("blur", () => validate(rule));
-    });
-
-    $("contactForm").addEventListener("submit", event => {
-      event.preventDefault();
-
-      const fieldsValid = rules.map(validate).every(Boolean);
-      const consent = $("consent").checked;
-
-      $("consentError").textContent = consent
-        ? ""
-        : "Необходимо согласиться на обработку данных.";
-
-      if (!fieldsValid || !consent) {
-        $("formStatus").textContent =
-          "Пожалуйста, проверьте заполнение формы.";
-        $("formStatus").className = "text-sm leading-6 text-red-700";
-
-        const invalid = event.currentTarget.querySelector(
-          '[aria-invalid="true"]'
-        );
-
-        if (invalid) invalid.focus();
-        return;
-      }
-
-      $("formStatus").textContent =
-        "Спасибо, " + $("name").value.trim() +
-        "! Форма заполнена. Для реальной отправки подключите сервис форм.";
-
-      $("formStatus").className = "text-sm leading-6 text-green-800";
-
-      event.currentTarget.reset();
-
-      rules.forEach(rule => {
-        rule.error.textContent = "";
-        rule.input.removeAttribute("aria-invalid");
-      });
-    });
-
-    // ИНИЦИАЛИЗАЦИЯ
-    $("year").textContent = new Date().getFullYear();
-
-    renderCategory();
-    renderCart();
-    renderSearch();
-
-    // МОБИЛЬНОЕ МЕНЮ
-    $("menuBtn").addEventListener("click", () => {
-      const menu = $("mobileMenu");
-      const isOpen = !menu.classList.contains("hidden");
-
-      menu.classList.toggle("hidden");
-      $("menuBtn").setAttribute("aria-expanded", String(!isOpen));
-      $("menuBtn").textContent = isOpen ? "☰" : "×";
-    });
-
-    $("mobileMenu").querySelectorAll("a").forEach(link => {
-      link.addEventListener("click", () => {
-        $("mobileMenu").classList.add("hidden");
-        $("menuBtn").setAttribute("aria-expanded", "false");
-        $("menuBtn").textContent = "☰";
-      });
-    });
-  </script>
 </body>
 </html>
